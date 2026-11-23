@@ -51,8 +51,8 @@ resource "azurerm_databricks_workspace" "main" {
   }
 
   # Customer managed key
-  customer_managed_key_enabled         = var.customer_managed_key != null
-  managed_disk_cmk_key_vault_key_id    = var.customer_managed_key != null ? var.customer_managed_key.key_vault_key_id : null
+  customer_managed_key_enabled                        = var.customer_managed_key != null
+  managed_disk_cmk_key_vault_key_id                   = var.customer_managed_key != null ? var.customer_managed_key.key_vault_key_id : null
   managed_disk_cmk_rotation_to_latest_version_enabled = var.customer_managed_key != null ? try(var.customer_managed_key.rotation_enabled, false) : false
 
   # Infrastructure encryption
